@@ -13,7 +13,8 @@ class UserController extends Controller
     }
 
     public function store(Request $request) {
-        $user = User::create($request->all());
+
+        $user = User::create($request->only('name', 'email', 'password'));
         return response()->json($user, 201);
     }
 
@@ -23,7 +24,7 @@ class UserController extends Controller
 
     public function update(Request $request, $id) {
         $user = User::findOrFail($id);
-        $user->update($request->all());
+        $user->update($request->only('name', 'email', 'password'));
         return response()->json($user);
     }
 
