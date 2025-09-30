@@ -13,7 +13,3 @@ Route::get('pokemon/{name}', [PokemonController::class, 'show']);
 // routes/web.php
 
 
-Route::get('/run-seeders', function() {
-    Artisan::call('db:seed', ['--force' => true]);
-    return "Seeders ejecutados correctamente 😎";
-});
