@@ -14,11 +14,10 @@ COPY . .
 
 RUN composer install --no-dev --optimize-autoloader
 
-# Generar key si no existe
-RUN php artisan key:generate --ansi || true
 
 EXPOSE 8080
 
-# 👇 Aquí está la magia: corre migrate + seed y después arranca Laravel
+# Comando de arranque
 CMD php artisan migrate --force && php artisan db:seed --force && php artisan serve --host=0.0.0.0 --port=8080
+
 
