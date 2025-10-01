@@ -1,6 +1,7 @@
 # Usamos PHP CLI como base
 FROM php:8.2-cli
-
+# Copiar proyecto
+COPY .env .env
 # Instalar dependencias necesarias
 RUN apt-get update && apt-get install -y \
     libpq-dev unzip git \
